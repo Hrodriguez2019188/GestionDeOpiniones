@@ -11,7 +11,7 @@ const router = Router();
 
 router.put("/:id", [
     validarJWT,
-    tieneRole('USER_ROLE', 'ADMIN_ROLE'),
+    tieneRole('USER_ROLE'),
     check('id', 'No es un ID válido').isMongoId(),
     check('id'),
     validarCampos
