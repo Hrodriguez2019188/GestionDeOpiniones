@@ -63,8 +63,6 @@ const addComment = async (req, res) => {
     try {
         const { userId } = req.params;
         const { postId, titulo, descripcion } = req.body; // Agrega título y descripción desde el cuerpo de la solicitud
-        const usuarioAutenticado = req.usuario;
-
 
         // Crea un nuevo comentario utilizando el modelo userHasComment
         const nuevoComentario = new userHasComment({
@@ -88,8 +86,42 @@ const addComment = async (req, res) => {
     }
 };
 
+const getAllPostsWithComments = async (req, res) => {
+    try {
+        // Buscar todos los posts
+        const posts = await Post.find();
+
+        // Iterar sobre cada post y buscar los comentarios asociados por el ID de PostHasComment
+        for (let post of posts) {
+            // Obtener los IDs de los comentarios asociados a este post
+            const comentariosIds = await PostHasComment.find({ post: post._id }).select('_id');
+
+            // Iterar sobre los IDs de los comentarios y obtener los detalles de cada comentario
+            const comentarios = [];
+            for (let comentarioId of comentariosIds) {
+                const comentario = await PostHasComment.findById(comentarioId);
+                comentarios.push(comentario);
+            }
+
+            // Agregar los comentarios al post
+            post.comentarios = comentarios;
+        }
+
+        res.status(200).json({
+            msg: 'Posts encontrados con sus comentarios',
+            posts,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            msg: 'Hable con el administrador de los post',
+        });
+    }
+};
+
 module.exports = {
     postPublicacion,
     putPublicacion,
-    addComment
+    addComment,
+    getAllPostsWithComments
 };

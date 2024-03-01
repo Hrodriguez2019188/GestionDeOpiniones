@@ -2,7 +2,7 @@ const { check } = require('express-validator');
 const { Router } = require('express');
 const { validarJWT } = require('../middlewares/validar-jwt');
 const { validarCampos } = require('../middlewares/validar-campos');
-const { postPublicacion, putPublicacion, addComment } = require('../controllers/post.controller'); // Ajusta el controlador
+const { postPublicacion, putPublicacion, addComment, getAllPostsWithComments } = require('../controllers/post.controller'); // Ajusta el controlador
 
 const router = Router();
 
@@ -21,6 +21,11 @@ router.post('/users/:userId', [
     check('postId', 'El ID del post es requerido').notEmpty(),
     validarCampos
 ], addComment);
+
+router.get('/', [
+    getAllPostsWithComments
+]);
+
 
 // Eliminar publicación si es necesario
 // router.delete('/:postId', [
