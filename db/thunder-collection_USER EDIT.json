@@ -1,20 +1,20 @@
 {
     "client": "Thunder Client",
     "collectionName": "USER EDIT",
-    "dateExported": "2024-02-26T02:40:50.862Z",
+    "dateExported": "2024-03-01T17:57:45.008Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "fdf6ccd6-c9d0-4b04-97fa-b49843dc8ec3",
-            "colId": "572f716e-8c87-48a6-a9ab-87a96c924e85",
+            "_id": "5d7b0e6a-15a5-47f8-979c-67649e8e373a",
+            "colId": "0d31f6a8-424c-4173-a077-8c01991e9a07",
             "containerId": "",
             "name": "EditarUsuario (token usuario)",
             "url": "http://localhost:3000/api/users/65dbb7525f922d5e61513634",
             "method": "PUT",
             "sortNum": 60000,
-            "created": "2024-02-25T20:59:16.597Z",
-            "modified": "2024-02-26T02:18:51.628Z",
+            "created": "2024-03-01T14:24:02.870Z",
+            "modified": "2024-03-01T14:24:02.870Z",
             "headers": [
                 {
                     "name": "x-token",
