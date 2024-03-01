@@ -20,12 +20,15 @@ const postSchema = new mongoose.Schema({
     estado: {
         type: Boolean,
         default: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 });
-
 postSchema.methods.toJSON = function () {
-    const { __v, _id, ...post } = this.toObject();
-    post.pid = _id;
+    const { __v, _id, createdAt, ...post } = this.toObject();
+    post.pid = createdAt; // Utilizamos la fecha de creación como identificador
     return post;
 }
 
