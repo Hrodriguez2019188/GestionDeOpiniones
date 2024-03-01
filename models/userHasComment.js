@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PostHasCommentSchema = new mongoose.Schema({
+const userHasCommentSchema = new mongoose.Schema({
     user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -21,4 +21,4 @@ const PostHasCommentSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('PostHasComment', PostHasCommentSchema);
+module.exports = mongoose.model('usertHasComment', userHasCommentSchema);

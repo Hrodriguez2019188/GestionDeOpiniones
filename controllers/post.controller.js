@@ -1,6 +1,5 @@
 const Post = require('../models/post');
-const User = require('../models/user');
-const userHasComment = require('../models/PostHasComment');
+const userHasComment = require('../models/userHasComment');
 
 
 const postPublicacion = async (req, res) => {
@@ -91,20 +90,11 @@ const getAllPostsWithComments = async (req, res) => {
         // Buscar todos los posts
         const posts = await Post.find();
 
-        // Iterar sobre cada post y buscar los comentarios asociados por el ID de PostHasComment
+        // Para cada post, encontrar los comentarios asociados
         for (let post of posts) {
-            // Obtener los IDs de los comentarios asociados a este post
-            const comentariosIds = await PostHasComment.find({ post: post._id }).select('_id');
-
-            // Iterar sobre los IDs de los comentarios y obtener los detalles de cada comentario
-            const comentarios = [];
-            for (let comentarioId of comentariosIds) {
-                const comentario = await PostHasComment.findById(comentarioId);
-                comentarios.push(comentario);
-            }
-
-            // Agregar los comentarios al post
-            post.comentarios = comentarios;
+            // Buscar comentarios asociados al post actual
+            const comments = await UserHasComment.find({ post: post._id });
+            post.comments = comments; // Agregar los comentarios al post
         }
 
         res.status(200).json({
