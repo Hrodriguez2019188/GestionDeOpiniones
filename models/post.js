@@ -25,10 +25,11 @@ const postSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
+    
 });
 postSchema.methods.toJSON = function () {
     const { __v, _id, createdAt, ...post } = this.toObject();
-    post.pid = createdAt; // Utilizamos la fecha de creación como identificador
+    post.pid = createdAt;
     return post;
 }
 

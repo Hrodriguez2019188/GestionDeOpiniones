@@ -86,28 +86,25 @@ const addComment = async (req, res) => {
 };
 
 const getAllPostsWithComments = async (req, res) => {
-    try {
-        // Buscar todos los posts
-        const posts = await Post.find();
+  try {
+      // Buscar todos los posts
+      const posts = await Post.find();
 
-        // Para cada post, encontrar los comentarios asociados
-        for (let post of posts) {
-            // Buscar comentarios asociados al post actual
-            const comments = await UserHasComment.find({ post: post._id });
-            post.comments = comments; // Agregar los comentarios al post
-        }
+      // Iterar sobre cada post y buscar los comentarios asociados por el ID de PostHasComment
 
-        res.status(200).json({
-            msg: 'Posts encontrados con sus comentarios',
-            posts,
-        });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({
-            msg: 'Hable con el administrador de los post',
-        });
-    }
+
+      res.status(200).json({
+          msg: 'Posts encontrados con sus comentarios',
+          posts,
+      });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({
+          msg: 'Hable con el administrador de los post',
+      });
+  }
 };
+
 
 module.exports = {
     postPublicacion,
@@ -115,3 +112,4 @@ module.exports = {
     addComment,
     getAllPostsWithComments
 };
+
