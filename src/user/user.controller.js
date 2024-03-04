@@ -1,11 +1,10 @@
-const { response } = require('express');
-const bcryptjs = require('bcryptjs');
-const User = require('../models/user');
+import bcryptjs from 'bcryptjs';
+import User from '../user/user.js';
 
-const userPut = async (req, res) => {
+export const userPut = async (req, res) => {
     try {
         const { id } = req.params;
-        const { _id, password, ...resto } = req.body;
+        const { oldPassword, newPassword, ...resto } = req.body;
 
         const usuarioAutenticado = req.usuario;
         const idCoincide = usuarioAutenticado._id.toString() === id;
@@ -18,9 +17,9 @@ const userPut = async (req, res) => {
         }
 
         // Verificar si la contraseña anterior fue proporcionada en la solicitud
-        if (!password) {
+        if (!oldPassword || !newPassword) {
             return res.status(400).json({
-                msg: 'Debes proporcionar la contraseña anterior para actualizar',
+                msg: 'Debes proporcionar tanto la contraseña anterior como la nueva para actualizar',
             });
         }
 
@@ -32,20 +31,24 @@ const userPut = async (req, res) => {
             });
         }
 
-        // Comparar la contraseña proporcionada con la almacenada en la base de datos
-        const contrasenaValida = await bcryptjs.compare(password, usuario.password);
+        // Comparar la contraseña anterior proporcionada con la almacenada en la base de datos
+        const contrasenaValida = await bcryptjs.compare(oldPassword, usuario.password);
         if (!contrasenaValida) {
             return res.status(400).json({
                 msg: 'La contraseña anterior no es válida',
             });
         }
 
-        // Si la contraseña anterior es válida, actualizar el perfil con la nueva información
-        const updatedUser = await User.findByIdAndUpdate(id, resto, { new: true });
-        
+        // Hashear la nueva contraseña
+        const hashedPassword = await bcryptjs.hash(newPassword, 10);
+
+        // Actualizar el campo de la contraseña con la nueva contraseña hasheada
+        usuario.password = hashedPassword;
+        await usuario.save();
+
         res.status(200).json({
             msg: 'Se actualizó el perfil correctamente',
-            usuario: updatedUser,
+            usuario,
         });
     } catch (error) {
         console.error(error);
@@ -55,6 +58,4 @@ const userPut = async (req, res) => {
     }
 };
 
-module.exports = {
-    userPut
-};
+export default userPut;

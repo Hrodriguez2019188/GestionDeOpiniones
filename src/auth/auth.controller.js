@@ -1,10 +1,8 @@
-const User = require('../models/user');
-const bcryptjs = require('bcryptjs');
-const { generarJWT } = require('../helpers/generar-jwt');
+import User from '../user/user.js';
+import bcryptjs from 'bcryptjs';
+import { generarJWT } from '../helpers/generar-jwt.js';
 
-
-
-const registrarse = async (req, res) => {
+export const registrarse = async (req, res) => {
     const { nameUser, email, password, role } = req.body;
     const usuario = new User({ nameUser, email, password, role });
 
@@ -17,8 +15,7 @@ const registrarse = async (req, res) => {
     });
 }
 
-
-const login = async (req, res) => {
+export const login = async (req, res) => {
     
     const { email, password } = req.body;
     
@@ -64,13 +61,4 @@ const login = async (req, res) => {
             msg: 'Error, hablele al admin'
         });
     }
-}
-
-
-
-
-
-module.exports = {
-    registrarse,
-    login
 }

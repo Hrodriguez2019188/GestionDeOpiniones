@@ -1,8 +1,7 @@
-const Post = require('../models/post');
-const userHasComment = require('../models/userHasComment');
+import Post from '../post/post.js';
+import userHasComment from '../user/userHasComment.js';
 
-
-const postPublicacion = async (req, res) => {
+export const postPublicacion = async (req, res) => {
     try {
         const { titulo, categoria, descripcion } = req.body;
         const post = new Post({
@@ -24,7 +23,7 @@ const postPublicacion = async (req, res) => {
     }
 };
 
-const putPublicacion = async (req, res) => {
+export const putPublicacion = async (req, res) => {
     try {
         const { createdAt } = req.params; // Cambia el nombre del parámetro al campo adecuado
         const { titulo, categoria, descripcion } = req.body;
@@ -58,7 +57,7 @@ const putPublicacion = async (req, res) => {
     }
 };
 
-const addComment = async (req, res) => {
+export const addComment = async (req, res) => {
     try {
         const { userId } = req.params;
         const { postId, titulo, descripcion } = req.body; // Agrega título y descripción desde el cuerpo de la solicitud
@@ -85,7 +84,7 @@ const addComment = async (req, res) => {
     }
 };
 
-const getAllPostsWithComments = async (req, res) => {
+export const getAllPostsWithComments = async (req, res) => {
   try {
       // Buscar todos los posts
       const posts = await Post.find();
@@ -104,12 +103,3 @@ const getAllPostsWithComments = async (req, res) => {
       });
   }
 };
-
-
-module.exports = {
-    postPublicacion,
-    putPublicacion,
-    addComment,
-    getAllPostsWithComments
-};
-

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const postSchema = new mongoose.Schema({
     titulo: {
@@ -24,8 +24,11 @@ const postSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
-    
+    },
+    comment: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'
+    }]
 });
 postSchema.methods.toJSON = function () {
     const { __v, _id, createdAt, ...post } = this.toObject();
@@ -33,4 +36,4 @@ postSchema.methods.toJSON = function () {
     return post;
 }
 
-module.exports = mongoose.model('Post', postSchema);
+export default mongoose.model('Post', postSchema);

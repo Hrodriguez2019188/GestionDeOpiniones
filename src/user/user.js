@@ -1,6 +1,8 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 
 const userSchema = new mongoose.Schema({
+    
     nameUser: {
         type: String,
         required: [true, 'El nombre es obligatorio']
@@ -23,6 +25,7 @@ const userSchema = new mongoose.Schema({
         default: 'USER_ROLE',
         enum: ["USER_ROLE"]
     }
+
 });
 
 
@@ -33,5 +36,4 @@ userSchema.methods.toJSON = function () {
 }
 
 
-
-module.exports = mongoose.model('User', userSchema);
+export default mongoose.model('User', userSchema);

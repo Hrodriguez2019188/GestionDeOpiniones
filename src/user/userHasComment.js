@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const userHasCommentSchema = new mongoose.Schema({
 
@@ -7,13 +7,11 @@ const userHasCommentSchema = new mongoose.Schema({
     ref: 'User',
     required: true
     },
-
     post: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Posts',
     required: true
     },
-
     titulo: {
         type: String,
         required: [true, 'No puede comentar sin texto']
@@ -26,4 +24,4 @@ const userHasCommentSchema = new mongoose.Schema({
     
 });
 
-module.exports = mongoose.model('usertHasComment', userHasCommentSchema);
+export default mongoose.model('usertHasComment', userHasCommentSchema);

@@ -1,7 +1,7 @@
-const { request, response } = require("express");
-const User = require('../models/user');
+import { request, response } from "express";
+import User from '../models/user';
 
-const tieneRole = (...roles) => {
+export const tieneRole = (...roles) => {
     return async (req = request, res = response, next) => {
         if (!req.usuario) {
             return res.status(500).json({
@@ -18,9 +18,5 @@ const tieneRole = (...roles) => {
 
         next();
     };
-}
-
-module.exports = {
-    tieneRole
-}
+};
 

@@ -1,0 +1,33 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "USER EDIT",
+    "dateExported": "2024-03-04T00:13:50.717Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7da83310-dcad-42b1-b140-c57dbec01fd9",
+            "colId": "892da57e-a38a-4949-b338-1b7f1a14d0db",
+            "containerId": "",
+            "name": "EditarUsuario (token usuario)",
+            "url": "http://localhost:3000/api/v1/users/65e50fbef4febbeb7243780d",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-03-01T20:39:58.812Z",
+            "modified": "2024-03-04T00:12:24.219Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU1MGZiZWY0ZmViYmViNzI0Mzc4MGQiLCJpYXQiOjE3MDk1MTA3NjUsImV4cCI6MTcwOTUxNDM2NX0.u9bDhXGantaaWQM7C4Hbm9pBYyFJbKe4kiMDhrTJ1Yc"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nameUser\": \"alex\",\n  \"oldPassword\": \"123456\",\n  \"newPassword\": \"654321\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

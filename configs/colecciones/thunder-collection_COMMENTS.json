@@ -1,0 +1,33 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "COMMENTS",
+    "dateExported": "2024-03-04T00:24:29.422Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "960654fa-1bbb-41f8-85de-f8d3f534f828",
+            "colId": "0b8c2bb5-1f1b-4bbd-ad4a-8f7cf7714f3c",
+            "containerId": "",
+            "name": "AgregarComentario",
+            "url": "http://localhost:3000/api/v1/post/comment/65e20c14da6d87fd236a2fee",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-01T20:40:14.899Z",
+            "modified": "2024-03-04T00:24:03.798Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU1MGZiZWY0ZmViYmViNzI0Mzc4MGQiLCJpYXQiOjE3MDk1MTExNjksImV4cCI6MTcwOTUxNDc2OX0.5MvClK13jkix7vkuXahZkRekRh1Adb3846V4GSIlWz8"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"postId\": \"65e513486c298963541077a5\",\n    \"titulo\":\"xd\",\n    \"descripcion\":\"odio el fruvo\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
