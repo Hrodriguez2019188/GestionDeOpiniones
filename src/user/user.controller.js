@@ -4,7 +4,7 @@ import User from '../user/user.js';
 export const userPut = async (req, res) => {
     try {
         const { id } = req.params;
-        const { oldPassword, newPassword, ...resto } = req.body;
+        const {nameUser, email, oldPassword, newPassword} = req.body;
 
         const usuarioAutenticado = req.usuario;
         const idCoincide = usuarioAutenticado._id.toString() === id;
@@ -16,14 +16,12 @@ export const userPut = async (req, res) => {
             });
         }
 
-        // Verificar si la contraseña anterior fue proporcionada en la solicitud
         if (!oldPassword || !newPassword) {
             return res.status(400).json({
                 msg: 'Debes proporcionar tanto la contraseña anterior como la nueva para actualizar',
             });
         }
 
-        // Buscar el usuario por ID
         const usuario = await User.findById(id);
         if (!usuario) {
             return res.status(400).json({
@@ -31,7 +29,6 @@ export const userPut = async (req, res) => {
             });
         }
 
-        // Comparar la contraseña anterior proporcionada con la almacenada en la base de datos
         const contrasenaValida = await bcryptjs.compare(oldPassword, usuario.password);
         if (!contrasenaValida) {
             return res.status(400).json({
@@ -39,10 +36,14 @@ export const userPut = async (req, res) => {
             });
         }
 
-        // Hashear la nueva contraseña
-        const hashedPassword = await bcryptjs.hash(newPassword, 10);
+        if (nameUser) {
+            usuario.nameUser = nameUser;
+        }
+        if (email) {
+            usuario.email = email;
+        }
 
-        // Actualizar el campo de la contraseña con la nueva contraseña hasheada
+        const hashedPassword = await bcryptjs.hash(newPassword, 10);
         usuario.password = hashedPassword;
         await usuario.save();
 
@@ -58,4 +59,4 @@ export const userPut = async (req, res) => {
     }
 };
 
-export default userPut;
+export default userPut;
