@@ -1,68 +1,68 @@
 {
     "client": "Thunder Client",
     "collectionName": "POSTS",
-    "dateExported": "2024-03-04T00:20:17.735Z",
+    "dateExported": "2024-03-04T05:20:33.063Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "8b8ec40b-d5cc-416e-ab78-fe3985598188",
-            "colId": "f09860c3-86f1-4d33-9308-e431effc1b69",
+            "_id": "c164d294-fab1-4f3a-9254-8090d7fdafee",
+            "colId": "bf58fb23-79d4-44e2-b451-9cb0379424ac",
             "containerId": "",
             "name": "PostPost",
             "url": "http://localhost:3000/api/v1/post",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-03-01T20:40:07.151Z",
-            "modified": "2024-03-04T00:18:14.898Z",
+            "created": "2024-03-04T05:18:16.337Z",
+            "modified": "2024-03-04T05:19:03.712Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU1MGZiZWY0ZmViYmViNzI0Mzc4MGQiLCJpYXQiOjE3MDk1MTExNjksImV4cCI6MTcwOTUxNDc2OX0.5MvClK13jkix7vkuXahZkRekRh1Adb3846V4GSIlWz8"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU1NTk1NjNjMjQ1YTlkZWVmZDc2Y2EiLCJpYXQiOjE3MDk1Mjk0MzIsImV4cCI6MTcwOTUzMzAzMn0.dG_x3E5eVDPTRRiAvvzTiNmxEsx4juyE5gdbMZpgNLY"
                 }
             ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"titulo\": \"El calentamiento global\",\n  \"categoria\": \"naturaleza\",\n  \"descripcion\": \"como amo a los perros\"\n}",
+                "raw": "{\n  \"titulo\": \"Por que dejar el LOL\",\n  \"categoria\": \"Masoquismo\",\n  \"descripcion\": \"Odio el lol, arruino mi vida\"\n}",
                 "form": []
             },
             "tests": []
         },
         {
-            "_id": "fe628dea-501b-4073-bd5d-3c3a9804f5d1",
-            "colId": "f09860c3-86f1-4d33-9308-e431effc1b69",
+            "_id": "565633d9-a554-4df7-8968-371873b693f8",
+            "colId": "bf58fb23-79d4-44e2-b451-9cb0379424ac",
             "containerId": "",
             "name": "putPost",
-            "url": "http://localhost:3000/api/v1/post/2024-03-04T00:18:16.037+00:00",
+            "url": "http://localhost:3000/api/v1/post/2024-03-04T05:19:03.692+00:00",
             "method": "PUT",
             "sortNum": 20000,
-            "created": "2024-03-01T20:40:07.152Z",
-            "modified": "2024-03-04T00:19:49.393Z",
+            "created": "2024-03-04T05:18:16.338Z",
+            "modified": "2024-03-04T05:20:20.292Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU1MGZiZWY0ZmViYmViNzI0Mzc4MGQiLCJpYXQiOjE3MDk1MTExNjksImV4cCI6MTcwOTUxNDc2OX0.5MvClK13jkix7vkuXahZkRekRh1Adb3846V4GSIlWz8"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU1NTk1NjNjMjQ1YTlkZWVmZDc2Y2EiLCJpYXQiOjE3MDk1Mjk0MzIsImV4cCI6MTcwOTUzMzAzMn0.dG_x3E5eVDPTRRiAvvzTiNmxEsx4juyE5gdbMZpgNLY"
                 }
             ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"titulo\": \"el efecto mandela\",\n  \"categoria\": \"raro\",\n  \"descripcion\": \"estaba muy preocupado por eso\"\n}",
+                "raw": "{\n  \"titulo\": \"El valorant es peor juego\",\n  \"categoria\": \"VideoJuegos\",\n  \"descripcion\": \"Soy inmortal en valorant(solo hay 40 en guatemala)\"\n}",
                 "form": []
             },
             "tests": []
         },
         {
-            "_id": "78955b8d-9227-42bf-ab57-9c96eabd125b",
-            "colId": "f09860c3-86f1-4d33-9308-e431effc1b69",
+            "_id": "328d8e4a-529d-4239-8c77-6d307f4fafa3",
+            "colId": "bf58fb23-79d4-44e2-b451-9cb0379424ac",
             "containerId": "",
             "name": "GetPosts",
             "url": "http://localhost:3000/api/v1/post",
             "method": "GET",
             "sortNum": 30000,
-            "created": "2024-03-01T20:40:07.153Z",
-            "modified": "2024-03-04T00:20:05.981Z",
+            "created": "2024-03-04T05:18:16.339Z",
+            "modified": "2024-03-04T05:18:16.339Z",
             "headers": [],
             "params": [],
             "tests": []
